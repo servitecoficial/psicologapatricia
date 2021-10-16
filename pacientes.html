@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="img/png" href="patri.ico">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pacientes</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+
+    <form action="" class="formulario">
+        <img src="logo.jpg" class="imgLogo" />
+
+    
+        <center> <button class="boton1" id="boton1"><a href="index.html">inicio</a></button>
+    
+            <button class="boton1" id="boton1"><a href="pacientes.html">Pacientes</a></button>
+      
+        </center>
+  
+        
+        <h1 class="formulario__titulo">Psicologa Patricia.</h1>
+        <h3 class="formulario__subtitulo">FORMULARIO PARA EL PACIENTES YA ACTIVOS.</h3>
+        <p class="formulario__parrafo">Esta parte es para pacientes que ya vienen a las consultas, en el cual ya realizan sus pagos de sus seciones y coordinamos turnos.</p>
+       
+          
+           
+         
+
+    <label for="cliente" class="formulario__label">¿Cuál es tu nombre?</label>
+    <input
+      id="cliente"
+      type="text"
+      class="formulario__input"
+      placeholder="Indica cuál es tu nombre completo"
+    />
+
+  
+
+    <label for="fecha" class="formulario__label"
+    >Indica la fecha de tu turno.</label
+  >
+  <input
+    id="fecha"
+    type="date"
+    class="formulario__input"
+    pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+  />
+
+  <label for="hora" class="formulario__label"
+    >Indica la hora de tu turno</label
+  >
+  <input id="hora" type="time" class="formulario__input" />
+
+
+  
+ 
+
+  <p class="formulario__parrafo">¡IMPORTANTE!</p>
+  <p class="formulario__parrafo">Gracias por confiar en nosotros.</p>
+  <p class="formulario__parrafo">De click en enviar, asi nos llega el mensaje, a la brevedad le contestaremos.</p>
+  <p class="formulario__parrafo">Se les recuerda que la cancelación de un turno debe ser comunicada con 24 horas de antelación de lo contrario será cobrada.</p>
+
+ 
+ <center>
+     
+                    <button class="boton2" id="boton2"> <a href="cancelacion.html">Cancelar turno.</a>
+                 </button>
+
+
+
+<center>
+    <br>
+    <a href="https://mpago.la/2QQVx2V" target="_blank"><img src="mercado.png" alt="Los Tejos" /></a>
+
+</center>
+  
+
+
+    <div id="respuesta"></div>
+
+    <button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
+  
+
+    </form>
+
+
+
+<script src="js/pacientes.js"></script>
+  </body>
+  

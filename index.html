@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="img/png" href="logo.ico">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>psicologa patricia</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+    
+  </head>
+  <body>
+
+  
+    <form action="" class="formulario">
+      <img src="logo.jpg" class="imgLogo" />
+
+      <center> <button class="boton1" id="boton1"><a href="index.html">inicio</a></button>
+    
+        <button class="boton1" id="boton1"><a href="pacientes.html">Pacientes</a></button>
+  
+    </center>
+       
+     
+
+      <h1 class="formulario__titulo">Psicologa Patricia.</h1>
+      <h3 class="formulario__subtitulo">FORMULARIO PARA EL PACIENTE.</h3>
+      <p class="formulario__parrafo">
+        Llena este pequeño formulario para para Concretar una consulta.
+      </p>
+      <p class="formulario__parrafo">
+       Los días y horarios se acuerdan con el paciente ya que puede haber otro en ese horario. Desde ya muchas gracias.
+      </p>
+
+      <label for="cliente" class="formulario__label">¿Cuál es tu nombre?</label>
+      <input
+        id="cliente"
+        type="text"
+        class="formulario__input"
+        placeholder="Indica cuál es tu nombre completo"
+      />
+
+
+
+      <p class="formulario__parrafo">Les informamos a los clientes que una vez mandado el formulario se le datallara el dia y hora que nos queda.</p>
+
+
+      <label for="empleado" class="formulario__label"
+      >Modalidad.</label
+    >
+    <select id="empleado" name="listaempleados" class="formulario__input">
+      <option>Ninguna.</option>
+      <option>Virtual</option>
+      <option>Precencial.</option>
+      <option>Virtual precencial.</option>
+      
+    </select>
+
+      <label for="dispositivo" class="formulario__label"
+      >Trabajo a realizar.</label
+    >
+    <select id="dispositivo" name="listadedispositivo" class="formulario__input">
+      <option>Ninguno.</option>
+      <option>Individual.</option>
+      <option>Parejas.</option>
+      
+      
+    </select>
+
+
+    <label for="email" class="formulario__label">Conociendonos</label>
+    <p class="formulario__parrafo">Escribi tu mail.</p>
+    <input
+      id="email"
+      type="email"
+      class="formulario__input"
+      placeholder="Escribe aquí tu mail."
+    />
+
+    <label for="numero_de_contacto" class="formulario__label">Numero de contacto.</label>
+    
+    <input
+      id="numero_de_contacto"
+      type="number"
+      class="formulario__input"
+      placeholder="Escribe tu numero aquí."
+    />
+
+    <p class="formulario__parrafo">
+     </p>
+
+
+    <label for="modelo" class="formulario__label">Conociendonos</label>
+    <p class="formulario__parrafo">En este espacio contame sobre vos.</p>
+    <input
+      id="modelo"
+      type="text"
+      class="formulario__input"
+      placeholder="Escribe aquí."
+    />
+
+    <p class="formulario__parrafo">
+     </p>
+
+    
+
+
+  
+ <!--<p class="formulario__parrafo"></p>
+    
+      <label for="imei" class="formulario__label">Información adicional.</label>
+      <input
+        id="imei"
+        type="text"
+        class="formulario__input"
+        placeholder="Indica información adicional de tu vehículo."
+      />--> 
+
+
+
+      <label for="fecha" class="formulario__label"
+        >Indica la fecha de tu reserva</label
+      >
+      <input
+        id="fecha"
+        type="date"
+        class="formulario__input"
+        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+      />
+
+      <label for="hora" class="formulario__label"
+        >Indica la hora de tu reserva</label
+      >
+      <input id="hora" type="time" class="formulario__input" />
+
+    
+      
+     
+
+      <p class="formulario__parrafo">¡IMPORTANTE!</p>
+      <p class="formulario__parrafo">Gracias por confiar en nosotros.</p>
+      <p class="formulario__parrafo">De click en enviar, asi nos llega el mensaje, a la brevedad le contestaremos.</p>
+      <p class="formulario__parrafo">Se les recuerda que la cancelación de un turno debe ser comunicada con 24 horas de antelación de lo contrario será cobrada.</p>
+
+      <center>
+        <a href="https://mpago.la/2QQVx2V" target="_blank"><img src="mercado.png" alt="Los Tejos" /></a>
+    
+    </center>
+      
+
+
+      
+
+      <div id="respuesta"></div>
+
+      <button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
+    </form>
+    <center><button id="submit" class="formulario_1"><a href="https://api.whatsapp.com/send/?phone=541160548658&text=Hola+me+comunico+con+el+fin+de+consultar+sobre+una+recepcionista+virtual.&app_absent=0">Consulta por tu recepsionista virtual.</a></button></center> 
+    <center>
+        <p>
+          Esta pagina fue creada por servitec.
+        </p>
+    </center>
+    <script src="js/form.js"></script>
+  </body>
+</html>
