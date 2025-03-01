@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="img/png" href="logo.ico">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Psicóloga Patricia | Consultas y Terapia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      .calendario-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .calendario-contenido {
+        position: relative;
+        background-color: #fff;
+        width: 90%;
+        max-width: 700px;
+        height: 80%;
+        border-radius: 8px;
+        padding: 20px;
+      }
+      
+      .cerrar-calendario {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 24px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: #333;
+      }
+      
+      .timer {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-weight: bold;
+        color: #e63946;
+      }
+      
+      .calendario-iframe {
+        width: 100%;
+        height: 90%;
+        border: none;
+      }
+      
+      .boton-calendario {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 20px 0;
+        transition: background-color 0.3s;
+      }
+      
+      .boton-calendario:hover {
+        background-color: #45a049;
+      }
+      
+      .exito-mensaje {
+        display: none;
+        background-color: #d4edda;
+        color: #155724;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 4px;
+        border: 1px solid #c3e6cb;
+        text-align: center;
+      }
+      
+      .boton-pago {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+      }
+      
+      .boton-pago:hover {
+        background-color: #0069d9;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" class="formulario">
+      <img src="logo.jpg" class="imgLogo" alt="Logo Psicóloga Patricia" />
+
+      <center>
+        <button class="boton1" id="boton1"><a href="index.html">Inicio</a></button>
+        <button class="boton1" id="boton1"><a href="pacientes.html">Pacientes</a></button>
+        <br>
+       
+      </center>
+
+      <h1 class="formulario__titulo">Psicóloga Patricia</h1>
+      <h3 class="formulario__subtitulo">CONSULTA PSICOLÓGICA</h3>
+      <p class="formulario__parrafo">
+        Complete este formulario para concertar una consulta profesional.
+      </p>
+      <p class="formulario__parrafo">
+        Los días y horarios se acuerdan personalmente con cada paciente según disponibilidad. Gracias por su confianza.
+      </p>
+
+      <!-- Botón para abrir el calendario -->
+      <center>
+        <button type="button" id="abrir-calendario" class="boton-calendario">Abrir Calendario de Turnos</button>
+      </center>
+
+      <label for="cliente" class="formulario__label">Nombre completo</label>
+      <input
+        id="cliente"
+        type="text"
+        class="formulario__input"
+        placeholder="Ingrese su nombre y apellido"
+      />
+
+      <p class="formulario__parrafo">Una vez enviado el formulario, nos pondremos en contacto para confirmar día y hora de su consulta.</p>
+
+      <label for="empleado" class="formulario__label">Modalidad de atención</label>
+      <select id="empleado" name="listaempleados" class="formulario__input">
+        <option value="">Seleccione una opción</option>
+        <option>Virtual</option>
+        <option>Presencial</option>
+        <option>Virtual/Presencial (alternado)</option>
+      </select>
+
+      <label for="dispositivo" class="formulario__label">Tipo de terapia</label>
+      <select id="dispositivo" name="listadedispositivo" class="formulario__input">
+        <option value="">Seleccione una opción</option>
+        <option>Individual</option>
+        <option>Pareja</option>
+      </select>
+
+      <label for="email" class="formulario__label">Correo electrónico</label>
+      <input
+        id="email"
+        type="email"
+        class="formulario__input"
+        placeholder="ejemplo@correo.com"
+      />
+
+      <label for="numero_de_contacto" class="formulario__label">Teléfono de contacto</label>
+      <input
+        id="numero_de_contacto"
+        type="tel"
+        class="formulario__input"
+        placeholder="Ingrese su número telefónico"
+      />
+
+      <label for="modelo" class="formulario__label">Motivo de consulta</label>
+      <input
+        id="modelo"
+        type="text"
+        class="formulario__input"
+        placeholder="Describa brevemente el motivo de su consulta"
+      />
+
+      <label for="fecha" class="formulario__label">Fecha preferida para su consulta</label>
+      <input
+        id="fecha"
+        type="date"
+        class="formulario__input"
+        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+      />
+
+      <label for="hora" class="formulario__label">Hora preferida para su consulta</label>
+      <input id="hora" type="time" class="formulario__input" />
+
+      <p class="formulario__parrafo">¡IMPORTANTE!</p>
+      <p class="formulario__parrafo">Agradecemos su confianza en nuestro servicio profesional.</p>
+      <p class="formulario__parrafo">Al hacer clic en "Enviar", su solicitud será procesada y le responderemos a la brevedad.</p>
+      <p class="formulario__parrafo">Recuerde que la cancelación de turnos debe comunicarse con 24 horas de anticipación, de lo contrario se cobrará la sesión.</p>
+
+      <center>
+        <a href="https://mpago.la/2QQVx2V" target="_blank"><img src="mercado.png" alt="Mercado Pago" /></a>
+      </center>
+
+      <div id="respuesta"></div>
+      
+      <!-- Mensaje de éxito oculto por defecto -->
+      <div id="exito-mensaje" class="exito-mensaje">
+        <h3>¡Turno registrado con éxito!</h3>
+        <p>Para confirmar su turno, realice el pago a continuación:</p>
+        <button type="button" id="boton-pago" class="boton-pago">Realizar Pago</button>
+      </div>
+
+      <button id="submit" class="formulario__submit">Enviar Consulta</button>
+    </form>
+    
+    <!-- Modal del Calendario -->
+    <div id="calendario-modal" class="calendario-modal">
+      <div class="calendario-contenido">
+        <button class="cerrar-calendario" id="cerrar-calendario">&times;</button>
+        <div id="timer" class="timer">01:00</div>
+        <iframe id="calendario-iframe" class="calendario-iframe" src="https://calendar.app.google/HHPTqNt5NSyXcmas8" title="Calendario de Turnos"></iframe>
+      </div>
+    </div>
+    
+    <center>
+      <button id="submit" class="formulario_1">
+        <a href="https://api.whatsapp.com/send/?phone=541160548658&text=Hola+me+comunico+con+el+fin+de+consultar+sobre+una+recepcionista+virtual.&app_absent=0">
+          Consulta por recepcionista virtual
+        </a>
+      </button>
+    </center>
+    
+    <center>
+      <p>Sitio web desarrollado por Servitec</p>
+    </center>
+    
+    <script>
+      // Funcionalidad para el calendario modal con cuenta regresiva
+      document.addEventListener('DOMContentLoaded', function() {
+        const modalCalendario = document.getElementById('calendario-modal');
+        const abrirCalendario = document.getElementById('abrir-calendario');
+        const cerrarCalendario = document.getElementById('cerrar-calendario');
+        const timerElement = document.getElementById('timer');
+        const submitButton = document.getElementById('submit');
+        const exitoMensaje = document.getElementById('exito-mensaje');
+        const botonPago = document.getElementById('boton-pago');
+        
+        let tiempoRestante = 60; // 60 segundos = 1 minuto
+        let temporizador;
+        
+        // Función para actualizar el temporizador
+        function actualizarTemporizador() {
+          const minutos = Math.floor(tiempoRestante / 60);
+          const segundos = tiempoRestante % 60;
+          timerElement.textContent = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+          
+          if (tiempoRestante <= 0) {
+            clearInterval(temporizador);
+            modalCalendario.style.display = 'none';
+            tiempoRestante = 60; // Resetear para la próxima vez
+          } else {
+            tiempoRestante--;
+          }
+        }
+        
+        // Abrir el calendario
+        abrirCalendario.addEventListener('click', function(e) {
+          e.preventDefault();
+          modalCalendario.style.display = 'flex';
+          tiempoRestante = 60; // Resetear el temporizador
+          actualizarTemporizador();
+          temporizador = setInterval(actualizarTemporizador, 1000);
+        });
+        
+        // Cerrar el calendario (botón X)
+        cerrarCalendario.addEventListener('click', function() {
+          modalCalendario.style.display = 'none';
+          clearInterval(temporizador);
+        });
+        
+        // Cerrar el calendario (clic fuera del modal)
+        window.addEventListener('click', function(event) {
+          if (event.target === modalCalendario) {
+            modalCalendario.style.display = 'none';
+            clearInterval(temporizador);
+          }
+        });
+        
+        // Gestionar la confirmación de turno
+        submitButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Aquí verificaríamos que el formulario es válido
+          const nombre = document.getElementById('cliente').value;
+          const email = document.getElementById('email').value;
+          
+          if (nombre && email) {
+            // Mostrar mensaje de éxito y botón de pago
+            exitoMensaje.style.display = 'block';
+            
+            // Desplazarse hasta el mensaje
+            exitoMensaje.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            alert('Por favor complete al menos el nombre y correo electrónico.');
+          }
+        });
+        
+        // Redirigir al pago
+        botonPago.addEventListener('click', function() {
+          window.open('https://mpago.la/2a4QfpK', '_blank');
+        });
+        
+        // Interceptar eventos del iframe del calendario para detectar reservas
+        // Nota: Debido a políticas de seguridad, esto podría no funcionar si el iframe
+        // es de otro dominio (limitaciones de same-origin policy)
+        const calendarioIframe = document.getElementById('calendario-iframe');
+        calendarioIframe.addEventListener('load', function() {
+          try {
+            // Intentar detectar cambios en el iframe
+            calendarioIframe.contentWindow.document.addEventListener('click', function() {
+              console.log('Interacción detectada en el calendario');
+            });
+          } catch (e) {
+            console.log('No se puede acceder al contenido del iframe debido a políticas de seguridad');
+          }
+        });
+      });
+    </script>
+    
+    <script src="js/form.js"></script>
+  </body>
+</html>

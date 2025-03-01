@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="img/png" href="logo.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Psicóloga Patricia | Consultas y Terapia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #6c63ff;
+      --secondary-color: #4a47a3;
+      --accent-color: #f8b195;
+      --light-color: #f5f5f7;
+      --dark-color: #333;
+      --success-color: #4CAF50;
+      --error-color: #e63946;
+      --gray-bg: #f0f2f5;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      color: var(--dark-color);
+      background-color: var(--light-color);
+      overflow-x: hidden;
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 10px solid rgb(113, 126, 201);
+    }
+    
+    /* Cabecera y navegación */
+    header {
+      background-color: white;
+      box-shadow: var(--shadow);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-container img {
+      height: 50px;
+      margin-right: 15px;
+    }
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-item {
+      margin-left: 2rem;
+    }
+    
+    .nav-link {
+      color: var(--dark-color);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      padding-bottom: 5px;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary-color);
+      transition: var(--transition);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark-color);
+    }
+    
+    /* Contenido principal */
+    main {
+      max-width: 1200px;
+      margin: 7rem auto 3rem;
+      padding: 0 2rem;
+    }
+    
+    .hero-section {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+    
+    .hero-title {
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-text {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+    
+    /* Sección de Acción */
+    .action-container {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .action-title {
+      font-size: 1.8rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    
+    .action-subtitle {
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+    
+    .action-text {
+      font-size: 1rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      line-height: 1.8;
+    }
+    
+    .action-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+    
+    .action-card {
+      background-color: var(--gray-bg);
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    
+    .action-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .action-card i {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1.5rem;
+    }
+    
+    .action-card-title {
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .action-card-text {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: var(--dark-color);
+    }
+    
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .btn {
+      padding: 0.9rem 1.8rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    
+    .btn-icon {
+      margin-right: 0.7rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    .btn-success {
+      background-color: var(--success-color);
+      color: white;
+    }
+    
+    .btn-success:hover {
+      background-color: #45a049;
+      transform: translateY(-2px);
+    }
+    
+    /* Información importante */
+    .info-box {
+      background-color: rgba(108, 99, 255, 0.05);
+      border-left: 4px solid var(--primary-color);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 5px;
+    }
+    
+    .info-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .info-title i {
+      margin-right: 0.7rem;
+    }
+    
+    /* Modal calendario */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(3px);
+    }
+    
+    .modal-content {
+      position: relative;
+      background-color: white;
+      width: 90%;
+      max-width: 800px;
+      height: 85%;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      padding: 1.5rem;
+      animation: modalFadeIn 0.3s ease;
+    }
+    
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .modal-title {
+      font-size: 1.3rem;
+      color: var(--primary-color);
+    }
+    
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      transition: var(--transition);
+    }
+    
+    .close-modal:hover {
+      color: var(--error-color);
+    }
+    
+    .timer {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--error-color);
+      background-color: rgba(230, 57, 70, 0.1);
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+    }
+    
+    .timer i {
+      margin-right: 0.5rem;
+    }
+    
+    .modal-iframe {
+      width: 100%;
+      height: calc(100% - 60px);
+      border: none;
+      border-radius: 5px;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark-color);
+      color: white;
+      padding: 3rem 0 2rem;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    
+    .footer-logo-text {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: white;
+    }
+    
+    .footer-about {
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    
+    .footer-heading {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      color: white;
+      font-weight: 600;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-link {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-link a {
+      color: #ddd;
+      text-decoration: none;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .footer-link a:hover {
+      color: var(--accent-color);
+    }
+    
+    .footer-link i {
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .contact-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      color: #ddd;
+    }
+    
+    .contact-info i {
+      font-size: 1.1rem;
+      margin-right: 0.8rem;
+      color: var(--accent-color);
+    }
+    
+    .social-links {
+      display: flex;
+      margin-top: 1.5rem;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin-right: 0.8rem;
+      transition: var(--transition);
+    }
+    
+    .social-link:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-3px);
+    }
+    
+    .social-link i {
+      color: white;
+      font-size: 1rem;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .btn-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        top: 70px;
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .nav-menu.active {
+        display: flex;
+      }
+      
+      .nav-item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .nav-link {
+        display: block;
+        padding: 1rem 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .action-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      main {
+        padding: 0 1rem;
+        margin-top: 5rem;
+      }
+      
+      .action-container {
+        padding: 1.5rem;
+      }
+      
+      .hero-section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabecera y Navegación -->
+  <header>
+    <div class="nav-container">
+      <div class="logo-container">
+        
+        <div class="logo-text">Psicóloga Patricia</div>
+      </div>
+      
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <ul class="nav-menu" id="nav-menu">
+        <li class="nav-item"><a href="index3.html" class="nav-link">Inicio</a></li>
+        <li class="nav-item"><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">Sobre mí</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contacto</a></li>
+      </ul>
+    </div>
+  </header>
+  
+  <!-- Contenido Principal -->
+  <main>
+    <!-- Sección héroe -->
+    <section class="hero-section">
+        <img src="logo.jpg" alt="">
+      <h1 class="hero-title">Psicóloga Patricia</h1>
+      <h2 class="hero-subtitle">CONSULTA PSICOLÓGICA PROFESIONAL</h2>
+      <p class="hero-text">Ofrezco un espacio seguro y confidencial para abordar distintas problemáticas. La terapia es un proceso de autodescubrimiento que te ayudará a comprender tus emociones y mejorar tu bienestar.</p>
+      <p class="hero-text">Soy especialista en terapia cognitivo-conductual y orientación gestáltica. Mi enfoque se centra en acompañarte a descubrir tus propios recursos para afrontar los desafíos que se presentan en tu vida.</p>
+    </section>
+    
+    <!-- Sección de Acción -->
+    <section class="action-container">
+      <h2 class="action-title">¿Listo para dar el primer paso?</h2>
+      <p class="action-text">Puedes acceder directamente a mi calendario de turnos disponibles, realizar el pago de tu consulta o descargar el formulario de consentimiento. Si tienes cualquier duda, no dudes en contactarme.</p>
+      
+      <div class="action-cards">
+        <div class="action-card">
+          <i class="far fa-calendar-check"></i>
+          <h3 class="action-card-title">Agenda tu Consulta</h3>
+          <p class="action-card-text">Consulta mi disponibilidad y reserva tu turno directamente desde mi calendario online.</p>
+          <button type="button" id="abrir-calendario" class="btn btn-primary">
+            <i class="far fa-calendar-alt btn-icon"></i>
+            Ver Calendario
+          </button>
+        </div>
+        
+        <div class="action-card">
+          <i class="fas fa-credit-card"></i>
+          <h3 class="action-card-title">Realizar Pago</h3>
+          <p class="action-card-text">Realiza el pago de tu consulta de manera segura a través de Mercado Pago.</p>
+          <a href="https://mpago.la/2a4QfpK" target="_blank" class="btn btn-success">
+            <i class="fas fa-credit-card btn-icon"></i>
+            Pagar Consulta
+          </a>
+        </div>
+        
+        <div class="action-card">
+          <i class="fas fa-file-download"></i>
+          <h3 class="action-card-title">Consentimiento Informado</h3>
+          <p class="action-card-text">Descarga el formulario de consentimiento informado para completar antes de tu consulta.</p>
+          <a href="CONSENTIMIENTO INFORMADO ADULTOS.pdf"btn btn-outline">
+            <i class="fas fa-download btn-icon"></i>
+            Descargar PDF
+          </a>
+        </div>
+      </div>
+      
+      <div class="info-box">
+        <h3 class="info-title"><i class="fas fa-info-circle"></i>Información Importante</h3>
+        <p>La cancelación de turnos debe comunicarse con 24 horas de anticipación, de lo contrario se cobrará la sesión.</p>
+        <p>Para primera consulta se requiere el pago adelantado y haber descargado y leído el formulario de consentimiento informado.</p>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Modal del Calendario -->
+  <div id="calendario-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Calendario de Turnos Disponibles</h3>
+        <div class="timer" id="timer">
+          <i class="fas fa-clock"></i>
+          <span>10:00</span>
+        </div>
+        <button class="close-modal" id="cerrar-calendario">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <iframe id="calendario-iframe" class="modal-iframe" src="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2ZJ1ljDDVLg7DqilSunFEEJeEj6cDrForAi39rfszf-bd2r8hbZW6DSJaQQWHXUOK7UDXSJIjF" title="Calendario de Turnos"></iframe>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <div class="footer-logo">
+        
+          <div class="footer-logo-text">Psicóloga Patricia</div>
+        </div>
+        <p class="footer-about">
+          Psicóloga clínica con más de 10 años de experiencia en el tratamiento de diversas problemáticas. 
+          Ofrezco un espacio seguro y confidencial para tu proceso terapéutico.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="social-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="footer-heading">Enlaces Rápidos</h3>
+        <ul class="footer-links">
+          <li class="footer-link">
+            <a href="index.html">
+              <i class="fas fa-chevron-right"></i> Inicio
+            </a>
+          </li>
+          <li class="footer-link">
+            <a href="servicios.html">
+              <i class="fas fa-chevron-right"></i> Servicios
+            </a>
+          </li>
+          <li class="footer-link">
+            <a href="#about">
+              <i class="fas fa-chevron-right"></i> Sobre mí
+            </a>
+          </li>
+          <li class="footer-link">
+            <a href="#faq">
+              <i class="fas fa-chevron-right"></i> Preguntas frecuentes
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <div>
+        <h3 class="footer-heading">Contáctame</h3>
+        <div class="contact-info">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Buenos Aires, Argentina</span>
+        </div>
+        <div class="contact-info">
+          <i class="fas fa-phone-alt"></i>
+          <span>+54 11 6054 8658</span>
+        </div>
+        <div class="contact-info">
+          <i class="fas fa-envelope"></i>
+          <span>contacto@psicologapatricia.com</span>
+        </div>
+        <div class="contact-info">
+          <i class="fas fa-clock"></i>
+          <span>Lun - Vie: 9:00 AM - 7:00 PM</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Psicóloga Patricia. Todos los derechos reservados. | Sitio web desarrollado por Servitec</p>
+    </div>
+  </footer>
+  
+  <script>
+    // Funcionalidad para menú móvil
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const navMenu = document.getElementById('nav-menu');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        
+        // Cambiar ícono del botón
+        const icon = mobileMenuBtn.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Funcionalidad para el calendario modal con cuenta regresiva
+      const modalCalendario = document.getElementById('calendario-modal');
+      const abrirCalendario = document.getElementById('abrir-calendario');
+      const cerrarCalendario = document.getElementById('cerrar-calendario');
+      const timerElement = document.getElementById('timer').querySelector('span');
+      
+      let tiempoRestante = 600; // 600 segundos = 10 minutos
+      let temporizador;
+      
+      // Función para actualizar el temporizador
+      function actualizarTemporizador() {
+        const minutos = Math.floor(tiempoRestante / 60);
+        const segundos = tiempoRestante % 60;
+        timerElement.textContent = `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
+        
+        if (tiempoRestante <= 0) {
+          clearInterval(temporizador);
+          modalCalendario.style.display = 'none';
+          tiempoRestante = 600; // Resetear para la próxima vez
+        } else {
+          tiempoRestante--;
+        }
+      }
+      
+      // Abrir el calendario
+      abrirCalendario.addEventListener('click', function(e) {
+        e.preventDefault();
+        modalCalendario.style.display = 'flex';
+        tiempoRestante = 600; // Resetear el temporizador
+        actualizarTemporizador();
+        temporizador = setInterval(actualizarTemporizador, 1000);
+      });
+      
+      // Cerrar el calendario (botón X)
+      cerrarCalendario.addEventListener('click', function() {
+        modalCalendario.style.display = 'none';
+        clearInterval(temporizador);
+      });
+      
+      // Cerrar el calendario (clic fuera del modal)
+      window.addEventListener('click', function(event) {
+        if (event.target === modalCalendario) {
+          modalCalendario.style.display = 'none';
+          clearInterval(temporizador);
+        }
+      });
+      
+      // Animación para tarjetas al hacer scroll
+      const cards = document.querySelectorAll('.action-card');
+      
+      function checkScroll() {
+        cards.forEach(card => {
+          const cardPosition = card.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+          
+          if (cardPosition < screenPosition) {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }
+        });
+      }
+      
+      // Inicializar estilos para animación
+      cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+      
+      // Verificar al cargar la página
+      window.addEventListener('load', checkScroll);
+      // Verificar al hacer scroll
+      window.addEventListener('scroll', checkScroll);
+    });
+  </script>
+</body>
+</html>
